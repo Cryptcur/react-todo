@@ -2,15 +2,11 @@ import { Component } from "react";
 
 class TodoItem extends Component {
   render() {
-    const { list } = this.props;
-    return (
-      list &&
-      list.map((item, idx) => (
-        <li className="text" key={idx}>
-          {item}
-        </li>
-      ))
-    );
+    const { list, handleDelete } = this.props;
+    return <li id={list.id}>
+                {list.text}
+                <button onClick={() => handleDelete(list.id)}>Delete</button>
+            </li>
   }
 }
 
